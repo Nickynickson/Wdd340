@@ -4,3 +4,269 @@
 *:after {
   box-sizing: border-box;
 }
+
+body {
+    background-image: url('../images/site/small_check.jpg');
+  }
+
+/* Base Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333; /* Dark text for readability */
+  background-color: white; /* Light background */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px; /* Centered header */
+  margin: 0 auto;
+  padding: 1em;
+  background-color: white;
+}
+
+header a {
+  text-decoration: none;
+  color:#333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+
+/* Header Styles */
+.siteName a{
+  font-size: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #003366; /* Darker blue for contrast */
+  align-items: left;
+  font-weight: bold;
+}
+
+#tools {
+  font-size: 1.5em;
+  font-family: Arial, sans-serif;
+  align-items: right;
+}
+/* Navigation Styles */
+nav {
+  background-color: #003366; /* Slightly darker blue */
+}
+
+nav ul {
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav li {
+  margin: 0 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.hero-text h1{
+  text-align: left;
+}
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+}
+
+.hero-image img {
+  width: 80%;
+  height: auto;
+  max-width: 100%;
+}
+
+.tag {
+  position: absolute;
+  top: 15%;
+  bottom: 550px;
+  left: 23%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.0);
+}
+
+.tag h2 {
+  margin: 10px 0;
+  font-size: 1.9em;
+  text-align: center;
+  color: rgb(27, 189, 243);
+  font-weight: bold;
+}
+
+.tag p {
+  margin: 15px 0;
+  font-size: 1em;
+  text-align: left;
+  color: rgb(27, 189, 243); /* Dark text for readability */
+  font-weight: bold;
+}
+
+/* CTA Button */
+.cta img {
+  margin-top: 40px;
+  width: 155px; /* Adjusted size for better visibility */
+  height: auto; /* Adjusted size for better visibility */
+  display: block;
+  margin-left: -10;
+  margin-right: auto;
+  top: 50%;
+  left: 50%;
+}
+
+/* Desk Section */
+.desk {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.upgrades, .reviews {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 48%; /* Adjust width for layout */
+}
+
+/* Change for better spacing and alignment */
+.reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+/* Reviews List */
+.reviews ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reviews li {
+  margin: 10px 0;
+  
+}
+
+/* Upgrades Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px; /* Space between cards */
+  justify-content: space-between;
+}
+
+.card {
+  background-color:rgba(12, 146, 199, 0.822);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 50%; /* Adjust width for card layout */
+  margin: 5px 0;
+  text-align: center;
+  padding: 20px;
+}
+
+.photo-bg img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer Styles */
+footer {
+  background-color: white;
+  color: #333;
+  padding: 10px;
+}
+
+
+@media (max-width: 767px) {
+  /* Header Styles */
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .siteName a {
+    font-size: 1.2em;
+  }
+
+  #tools {
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+
+  /* Navigation Styles */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+
+  /* Hero Section */
+  .hero-image img {
+    width: 100%;
+  }
+
+  .tag {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+  }
+
+  .tag h2 {
+    font-size: 1.5em;
+  }
+
+  .tag p {
+    font-size: 0.9em;
+  }
+
+  /* CTA Button */
+  .cta img {
+    width: 120px;
+    margin-top: 20px;
+  }
+
+  /* Desk Section */
+  .desk {
+    flex-direction: column;
+  }
+
+  .upgrades, .reviews {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Upgrades Cards */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
