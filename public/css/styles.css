@@ -115,7 +115,7 @@ nav a {
 
 .tag {
   background-color: rgba(255, 255, 255, 0.616);
-  color: rgb(68, 129, 198);
+  color: rgb(69, 205, 235);
   display: inline-block;
   width: auto;
 }
@@ -151,7 +151,7 @@ nav a {
 }
 
 .photo-bg {
-  background-color: rgb(68, 129, 198);
+  background-color: rgb(69, 205, 235);
   padding-top: 1rem;
   padding-bottom: 1rem;
   border: solid 1px black;
@@ -178,7 +178,7 @@ footer p {
   text-align: left;
   font-size: 1.2em;
   padding: 1rem;
-  color: rgb(68, 129, 198);
+  color: rgb(69, 205, 235);
 }
 
 @media (min-width: 780px) {
@@ -187,7 +187,7 @@ footer p {
   }
 
   #wrapper {
-    border: solid 5px rgba(68, 129, 198, 0.911);
+    border: solid 5px rgb(69, 205, 235);
     border-radius: 15px;
   }
 
