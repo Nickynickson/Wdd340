@@ -90,9 +90,18 @@ nav li {
 }
 
 nav a {
+  color: white;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav li:hover {
+  background-color: #4466ee;
+}
+
+nav a:hover {
+  color: white;
 }
 /********** HOME body styles ************/
 
@@ -170,6 +179,102 @@ nav a {
   display: block;
   text-align: center;
 }
+
+/********** INV body styles ************/
+main h1 {
+  padding: 1rem;
+}
+
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#inv-display li a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  margin: auto;
+}
+
+#inv-display li {
+  list-style: none;
+  padding: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#inv-display li:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+#inv-display li img {
+  width: 320px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.namePrice {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.error_msg {
+  padding: 1rem;
+  color: rgb(36, 64, 112);
+  font-size: 1.5rem;
+}
+
+/********** Vehicle Detail styles ************/
+.vehicle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+}
+
+.vehicle-image {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-specs {
+  background-color: rgba(105, 152, 176, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.vehicle-specs p {
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  margin: 0;
+  border-bottom: 1px solid rgba(105, 152, 176, 0.1);
+}
+
+.vehi_desc {
+  padding: 1rem;
+  line-height: 1.5;
+  font-size: 1.1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
 
 footer p {
   text-align: left;
