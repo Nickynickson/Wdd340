@@ -1,0 +1,37 @@
+<div class="view-container">
+    <h1>Add New Classification</h1>
+
+    <!-- Flash message display -->
+    <% if (typeof flashMessage !=='undefined' ) { %>
+        <div class="flash-message <%= flashMessage.type %>">
+            <%= flashMessage.message %>
+        </div>
+        <% } %>
+
+            <!-- Error message display -->
+            <% if (typeof errors !=='undefined' && errors.length> 0) { %>
+                <ul class="error-messages">
+                    <% errors.forEach(error=> { %>
+                        <li>
+                            <%= error %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+
+                    <!-- Container for client-side error messages -->
+                    <div id="formErrors"></div>
+
+                    <form id="add-classification-form" action="/inv/add-classification" method="POST" novalidate>
+                        <div class="form-group">
+                            <label for="classificationName">Classification Name:</label>
+                            <input type="text" id="classificationName" name="classificationName" required
+                                pattern="^[a-zA-Z0-9]+$"
+                                title="Classification name must not contain spaces or special characters.">
+                        </div>
+                        <button type="submit" class="btn">Add Classification</button>
+                    </form>
+</div>
+
+<!-- Include client-side JavaScript -->
+<script src="/js/script.js"></script>

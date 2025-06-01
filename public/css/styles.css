@@ -275,6 +275,444 @@ main h1 {
   margin-top: 1rem;
 }
 
+/* Login Page Styles */
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  /* Centers and adds vertical spacing */
+  padding: 2rem;
+  background-color: rgba(158, 145, 145, 0.959);
+  box-shadow: 0 0 10px rgba(23, 26, 70, 0.1);
+  border-radius: 8px;
+}
+
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container form div {
+  margin-bottom: 1rem;
+}
+
+.login-container input[type='email'],
+.login-container input[type='password'] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.login-container input[type='email']:focus,
+.login-container input[type='password']:focus {
+  border-color: #4466ee;
+  /* Professional blue accent */
+  outline: none;
+}
+
+.login-container button[type='submit'] {
+  padding: 0.75rem;
+  background-color: #4466ee;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-container button[type='submit']:hover {
+  background-color: #3355cc;
+}
+
+.login-container p {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.login-container p a {
+  color: white;
+  text-decoration: none;
+}
+
+.login-container p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Registration styles */
+.register-container {
+  max-width: 600px;
+  margin: 40px auto;
+  /* increased top and bottom margin for better spacing */
+  padding: 30px;
+  /* increased padding for a cleaner layout */
+  background-color: #fff;
+  /* ensures a clean background */
+  border-radius: 8px;
+  /* soft rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* subtle shadow for elevation */
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #4466ee;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(68, 102, 238, 0.1);
+}
+
+/* Error message styling for consistency */
+.error-messages,
+.register-container ul.error {
+  background-color: #ffebee;
+  border: 1px solid #ef9a9a;
+  color: #c62828;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  list-style-type: none;
+}
+
+.register-container ul.error li {
+  margin-bottom: 5px;
+}
+
+.register-container ul.error li:last-child {
+  margin-bottom: 0;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password {
+  margin-left: 10px;
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.toggle-password:hover {
+  background-color: #e0e0e0;
+}
+
+.password-requirements {
+  margin-top: 12px;
+  font-size: 0.9em;
+  color: #666;
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 3px solid #4466ee;
+}
+
+.password-requirements p {
+  font-size: 0.95em;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.password-requirements ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.password-requirements li {
+  margin-bottom: 4px;
+}
+
+.flash-message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.flash-message.error,
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.register-container button[type="submit"] {
+  padding: 0.75rem 1.5rem;
+  background-color: #4466ee;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.register-container button[type="submit"]:hover {
+  background-color: #3355cc;
+  transform: translateY(-2px);
+}
+
+.register-container p {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 1.5rem;
+}
+
+.register-container p a {
+  color: #4466ee;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-container p a:hover {
+  text-decoration: underline;
+}
+
+/* --- Added new styles for professional view containers and form elements --- */
+.view-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 0 1rem;
+  max-width: 100%;
+}
+
+/* Registration page heading style */
+.register-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #4466ee;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: #3355cc;
+}
+
+/* Flash Message Styles */
+#messages ul.error {
+  background-color: #ffebee;
+  /* Light red background */
+  color: #c62828;
+  /* Reddish text color */
+  border: 1px solid #ef9a9a;
+  padding: 10px;
+  margin-bottom: 15px;
+  list-style-type: none;
+}
+
+#messages ul.notice {
+  background-color: #e8f5e9;
+  /* Light green background */
+  color: #2e7d32;
+  /* Green text color */
+  border: 1px solid #c8e6c9;
+  padding: 10px;
+  margin-bottom: 15px;
+  list-style-type: none;
+}
+
+#messages ul.success {
+  background-color: #e8f5e9;
+  /* Light green background */
+  color: #2e7d32;
+  /* Green text color */
+  border: 1px solid #c8e6c9;
+  padding: 10px;
+  margin-bottom: 15px;
+  list-style-type: none;
+}
+
+/* Error Page Styles */
+.error-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 4rem;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.error-title {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.error-message {
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.error-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.error-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #4466ee;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.error-button:hover {
+  background-color: #3355cc;
+  transform: translateY(-2px);
+}
+
+.error-button.secondary {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.error-button.secondary:hover {
+  background-color: #e1e1e1;
+}
+
+/* Account Management Page Styles */
+.account-home-container {
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.account-home-container h1 {
+  margin-bottom: 1rem;
+}
+
+.account-home-container p {
+  margin-bottom: 1.5rem;
+}
+
+.account-home-container a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4466ee;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.account-home-container a:hover {
+  background-color: #3355cc;
+}
+
+/* Center content in manage-container */
+.manage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* --- Enhanced styling for classification dropdown --- */
+#classification_id {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%234466ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#classification_id:focus {
+  border-color: #4466ee;
+  box-shadow: 0 0 0 3px rgba(68, 102, 238, 0.2);
+  outline: none;
+}
+
+/* --- Enhanced styling for inventory table --- */
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
 
 footer p {
   text-align: left;
