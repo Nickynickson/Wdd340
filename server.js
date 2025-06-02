@@ -17,7 +17,7 @@ const inventoryRoute = require("./routes/inventoryRoute");
 const accountController = require("./controllers/accountController");
 const accountRoute = require("./routes/accountRoute") // Account routes
 const bodyParser = require("body-parser");
-
+const invController = require("./controllers/invController");
 
 
 /* ***********************
@@ -68,6 +68,23 @@ app.get("/", baseController.buildHome);
 app.use("/inv", inventoryRoute);
 // Account routes
 app.use("/account", require("./routes/accountRoute"));
+app.get("/inv", invController.buildInvManagement);
+
+/* ***********************
+ * Express Error Handling
+ * Place after all other middleware
+ *************************/
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav();
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`);
+  res.render("errors/error", {
+    title: err.status || "Server Error",
+    message:
+      "Sorry, maybe was an accident or we can not find the page you are looking for.",
+    nav,
+  });
+});
+
 
 /* ***********************
  * Local Server Information
