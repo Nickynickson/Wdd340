@@ -42,13 +42,6 @@ async function getVehicleById(vehicleId) {
   }
 }
 
-
-const invModel = {
-  getClassifications,
-  getInventoryByClassificationId,
-  getVehicleById
-};
-
 /* ***************************
  *  Insert new classification
  * ************************** */
@@ -110,5 +103,12 @@ async function insertInventory(inventoryData) {
 
 
 
+const invModel = {
+  getClassifications,
+  getInventoryByClassificationId,
+  getVehicleById,
+  insertClassification,
+  insertInventory
+};
 
 module.exports = invModel;
