@@ -1,0 +1,30 @@
+<%- messages() %>
+
+  <div class="view-container">
+    <% if (errors) { %>
+      <ul class="error">
+        <% errors.forEach(error=> { %>
+          <li>
+            <%= error.msg %>
+          </li>
+          <% }) %>
+      </ul>
+      <% } %>
+
+        <div class="account-home-container">
+          <h1>
+            <%= title %>
+          </h1>
+          <h2>Welcome <%= accountData.account_firstname %>
+          </h2>
+          <p>You're logged in</p>
+          <p>Welcome to your account management page. From here, you can navigate to other parts of the application.</p>
+
+          <% if(accountData.account_type==='Employee' || accountData.account_type==='Admin' ){ %>
+            <h3>Inventory Management</h3>
+            <p><a href="/inv">Manage Inventory</a></p>
+            <% } %>
+
+              <a class="btn" href="/account/edit/<%= accountData.account_id %>">Edit Account Information</a>
+        </div>
+  </div>

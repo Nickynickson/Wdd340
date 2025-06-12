@@ -5,7 +5,7 @@
 /* ***********************
  * Require Statements
  *************************/
-expressLayout = require("express-ejs-layouts")
+const expressLayout = require("express-ejs-layouts")
 const express = require("express")
 const env = require("dotenv").config()
 const app = express()
@@ -14,12 +14,12 @@ const pool = require('./database/')
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute");
-const accountController = require("./controllers/accountController");
 const accountRoute = require("./routes/accountRoute") // Account routes
 const bodyParser = require("body-parser");
 const invController = require("./controllers/invController");
-
-
+const cookieParser = require("cookie-parser");
+const utilities = require("./utilities/");
+const authorizeEmployeeAdmin = require("./utilities/authorizeEmployeeAdmin");
 /* ***********************
  * Middleware
  * ************************/
@@ -27,15 +27,18 @@ const invController = require("./controllers/invController");
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
     pool,
+    ttl: 86400, // Session expiration time in seconds (1 day)
   }),
   secret: process.env.SESSION_SECRET,
   resave: true,
   saveUninitialized: true,
   name: 'sessionId',
-}))
+}));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(cookieParser())
+app.use(utilities.checkJWTToken) // Middleware to check JWT token validity
 
 
 // Express Messages Middleware
@@ -45,13 +48,19 @@ app.use(function(req, res, next){
   next()
 })
 
-
+// Fallback middleware to ensure loggedin is always defined
+app.use((req, res, next) => {
+  if (typeof res.locals.loggedin === "undefined") {
+    res.locals.loggedin = false;
+  }
+  next();
+});
 /* ***********************
  * View Engine and Template
  *************************/
 app.set("view engine", "ejs")
 app.use(expressLayout)
-app.set("layout", "layouts/layout")
+app.set("layout", "./layouts/layout")
 
 
 
@@ -68,7 +77,7 @@ app.get("/", baseController.buildHome);
 app.use("/inv", inventoryRoute);
 // Account routes
 app.use("/account", require("./routes/accountRoute"));
-app.get("/inv", invController.buildInvManagement);
+app.get("/inv", authorizeEmployeeAdmin, invController.buildInvManagement);
 
 /* ***********************
  * Express Error Handling
@@ -77,10 +86,10 @@ app.get("/inv", invController.buildInvManagement);
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav();
   console.error(`Error at: "${req.originalUrl}": ${err.message}`);
-  res.render("errors/error", {
+  res.render("error/error", {
     title: err.status || "Server Error",
     message:
-      "Sorry, maybe was an accident or we can not find the page you are looking for.",
+      "Sorry, PAGE NOT fOUND",
     nav,
   });
 });

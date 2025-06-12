@@ -4,12 +4,14 @@
   </h1>
 
   <% if (errors) { %>
-  <ul class="error-message">
- <% errors.array().forEach(error => { %>
-   <li><%= error.msg %></li>
-<%  }) %>
- </ul>
-<% } %>
+    <ul class="error-messages">
+      <% errors.forEach(error=> { %>
+        <li>
+          <%= error.msg %>
+        </li>
+        <% }) %>
+    </ul>
+    <% } %>
 
       <form method="POST" action="/account/register">
         <div class="form-group">
@@ -47,6 +49,7 @@
       </form>
       <p>Already have an account? <a href="/account/login">Login Here</a></p>
 </div>
+
 
 <script>
   document.getElementById('togglePassword').addEventListener('click', function () {

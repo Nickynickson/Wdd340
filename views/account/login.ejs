@@ -3,7 +3,7 @@
     <%= title %>
   </h1>
   <%- messages() %>
-    <form method="POST" action="/account/login">
+    <form id='loginForm' method="POST" action="/account/login">
       <div class="form-group">
         <input type="email" name="account_email" placeholder="Email Address" required class="form-control"
           autocomplete="email">

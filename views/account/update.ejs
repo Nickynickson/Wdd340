@@ -1,0 +1,41 @@
+<%- messages() %>
+<h1><%= title %></h1>
+
+<!-- Account Update Form -->
+<form action="/account/update" method="POST">
+  <fieldset>
+    <legend>Account Update</legend>
+    <div>
+      <label for="account_firstname">First Name:</label>
+      <input type="text" id="account_firstname" name="account_firstname" value="<%= accountData.account_firstname %>" required>
+    </div>
+    <div>
+      <label for="account_lastname">Last Name:</label>
+      <input type="text" id="account_lastname" name="account_lastname" value="<%= accountData.account_lastname %>" required>
+    </div>
+    <div>
+      <label for="account_email">Email Address:</label>
+      <input type="email" id="account_email" name="account_email" value="<%= accountData.account_email %>" required>
+    </div>
+    <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+    <div>
+      <button type="submit">Update Info</button>
+    </div>
+  </fieldset>
+</form>
+
+<!-- Change Password Form -->
+<form action="/account/update-password" method="POST">
+  <fieldset>
+    <legend>Change Password</legend>
+    <div>
+      <label for="new_password">New Password:</label>
+      <input type="password" id="new_password" name="new_password" required>
+    </div>
+    <p>Note: Characters Need To Be 8.1 Upper Case,1 Special Characters and a number.</p>
+    <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+    <div>
+      <button type="submit">Change Password</button>
+    </div>
+  </fieldset>
+</form>

@@ -1,0 +1,57 @@
+<div class="view-container">
+    <h1>Delete Vehicle</h1>
+
+    <!-- Flash message display -->
+    <% if (typeof flashMessage !=='undefined' ) { %>
+        <p class="flash-message">
+            <%= flashMessage %>
+        </p>
+        <% } %>
+
+            <!-- Error message display -->
+            <% if (errors && errors.length> 0) { %>
+                <ul class="error-messages">
+                    <% errors.forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+                    <p>Confirm Deletion - The delete is permanent.</p>
+
+                    <form action="/inv/delete" method="POST" id="delete-vehicle-form">
+                        <!-- Hidden input for inventory ID -->
+                        <input type="hidden" name="inv_id" value="<%= stickyData?.inv_id %>">
+                        <!-- Vehicle make -->
+                        <div class="form-group">
+                            <label for="inv_make">Make:</label>
+                            <input type="text" id="make" name="inv_make" value="<%= stickyData?.inv_make || '' %>"
+                                required readonly>
+                        </div>
+
+                        <!-- Vehicle model -->
+                        <div class="form-group">
+                            <label for="inv_model">Model:</label>
+                            <input type="text" id="model" name="inv_model" value="<%= stickyData?.inv_model || '' %>"
+                                required readonly>
+                        </div>
+
+                        <!-- Vehicle year -->
+                        <div class="form-group">
+                            <label for="inv_year">Year:</label>
+                            <input type="number" id="year" name="inv_year" value="<%= stickyData?.inv_year || '' %>"
+                                min="1900" max="2100" required readonly>
+                        </div>
+
+                        <!-- Vehicle price -->
+                        <div class="form-group">
+                            <label for="inv_price">Price:</label>
+                            <input type="number" id="price" name="inv_price" value="<%= stickyData?.inv_price || '' %>"
+                                step="0.01" required readonly>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn">Delete Vehicle</button>
+                    </form>
+</div>
