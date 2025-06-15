@@ -20,6 +20,7 @@ const invController = require("./controllers/invController");
 const cookieParser = require("cookie-parser");
 const utilities = require("./utilities/");
 const authorizeEmployeeAdmin = require("./utilities/authorizeEmployeeAdmin");
+const reviewRoutes = require("./routes/reviewRoute");
 /* ***********************
  * Middleware
  * ************************/
@@ -78,7 +79,8 @@ app.use("/inv", inventoryRoute);
 // Account routes
 app.use("/account", require("./routes/accountRoute"));
 app.get("/inv", authorizeEmployeeAdmin, invController.buildInvManagement);
-
+//Reviews Route
+app.use("/reviews", reviewRoutes);
 /* ***********************
  * Express Error Handling
  * Place after all other middleware

@@ -1,0 +1,131 @@
+<div class="vehicle-reviews-container">
+  <h2>Reviews for <%= vehicle.inv_make %>
+      <%= vehicle.inv_model %>
+  </h2>
+
+  <!-- Display existing reviews -->
+  <div class="reviews-list">
+    <% if (reviews && reviews.length> 0) { %>
+      <h3>
+        <%= reviews.length %> Review<%= (reviews.length> 1) ? 's' : '' %>
+      </h3>
+
+      <% reviews.forEach(review=> { %>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="rating">
+              <% for (let i=1; i <=5; i++) { %>
+                <span class="star <%= i <= review.rating ? 'filled' : '' %>">★</span>
+                <% } %>
+                  <span class="rating-value">
+                    <%= review.rating %>/5
+                  </span>
+            </div>
+            <div class="review-meta">
+              <span class="reviewer-name">
+                <%= review.reviewer_name || 'Anonymous' %>
+              </span>
+              <span class="review-date">
+                <%= new Date(review.created_at).toLocaleDateString() %>
+              </span>
+            </div>
+          </div>
+          <div class="review-content">
+            <p>
+              <%= review.review_text %>
+            </p>
+          </div>
+        </div>
+        <% }); %>
+          <% } else { %>
+            <p class="no-reviews">No reviews yet. Be the first to review this vehicle!</p>
+            <% } %>
+  </div>
+
+  <!-- Review submission form (only for logged-in users) -->
+  <% if (loggedin) { %>
+    <div class="review-form-container">
+      <h3>Write a Review</h3>
+      <form id="reviewForm" action="/reviews/add" method="POST">
+        <input type="hidden" name="inv_id" value="<%= vehicle.inv_id %>">
+
+        <div class="form-group">
+          <label for="rating">Rating:</label>
+          <select id="rating" name="rating" required>
+            <option value="">Select a rating</option>
+            <option value="1">1 - Poor</option>
+            <option value="2">2 - Fair</option>
+            <option value="3">3 - Good</option>
+            <option value="4">4 - Very Good</option>
+            <option value="5">5 - Excellent</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="review_text">Your Review:</label>
+          <textarea id="review_text" name="reviewText" rows="5" required></textarea>
+          <div class="char-count"><span id="charCount">0</span>/1000 characters</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
+    </div>
+
+    <!-- Client-side validation -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('reviewForm');
+        const reviewText = document.getElementById('review_text');
+        const charCount = document.getElementById('charCount');
+
+        // Character counter for review text
+        reviewText.addEventListener('input', function () {
+          const count = this.value.length;
+          charCount.textContent = count;
+
+          if (count > 1000) {
+            this.value = this.value.substring(0, 1000);
+            charCount.textContent = 1000;
+          }
+        });
+
+        // Form validation before submission
+        form.addEventListener('submit', function (event) {
+          const rating = document.getElementById('rating').value;
+          const reviewContent = reviewText.value.trim();
+          let isValid = true;
+
+          document.querySelectorAll('.error-message').forEach(el => el.remove());
+
+          // Validate rating
+          if (!rating) {
+            isValid = false;
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'error-message';
+            errorMsg.textContent = 'Please select a rating';
+            form.rating.parentNode.appendChild(errorMsg);
+          }
+
+          // Validate review text
+          if (!reviewContent || reviewContent.length < 10) {
+            isValid = false;
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'error-message';
+            errorMsg.textContent = reviewContent.length < 10
+              ? 'Review must be at least 10 characters long'
+              : 'Please enter your review';
+            reviewText.parentNode.appendChild(errorMsg);
+          }
+
+          if (!isValid) {
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
+    <% } else { %>
+      <div class="login-prompt">
+        <p>Please <a href="/account/login">log in</a> to leave a review.</p>
+      </div>
+      <% } %>
+</div>
